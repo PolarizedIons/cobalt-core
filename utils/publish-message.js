@@ -24,7 +24,7 @@ nats.publish("messageReceived", {
         username: "polarizedions",
         "message-type": "chat",
     },
-    message: "!echo hello world",
+    message: "!prime",
 });
 
 nats.flush(() => nats.close());
