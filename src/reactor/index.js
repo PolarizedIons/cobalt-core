@@ -1,11 +1,13 @@
+const config = require("../config");
+
 module.exports = nats => {
-    nats.subscribe("message", msg => {
+    nats.subscribe("messageReceived", msg => {
         console.log("[MESSAGE]", msg);
 
         if (msg.message.startsWith("!echo")) {
-            nats.publish("reply", {
+            nats.publish("sendMessage", {
                 channel: msg.channel,
-                message: msg.message.substring(5),
+                message: msg.message.substring(6),
             });
         }
     });
