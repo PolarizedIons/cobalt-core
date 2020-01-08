@@ -1,11 +1,13 @@
-console.log("init db");
+const log = require("./log");
+
+log.info("Init db");
 const db = require("./db/mongoose");
 
-console.log("init nats");
+log.info("Init NATS");
 const nats = require("./nats");
 
-console.log("init reactor");
+log.info("Init Reactor");
 require("./reactor")(nats, db);
 
-console.log("init manager");
+log.info("Init Manager");
 require("./manager")(nats, db);

@@ -5,14 +5,16 @@
     "license": "MIT",
     "scripts": {
         "start": "node src/index.js",
-        "dev": "nodemon src/index.js"
+        "dev": "nodemon src/index.js | pino-pretty -c"
     },
     "dependencies": {
         "dotenv": "^8.2.0",
         "mongoose": "^5.8.5",
-        "nats": "^1.3.2"
+        "nats": "^1.3.2",
+        "pino": "^5.15.0"
     },
     "devDependencies": {
-        "nodemon": "^2.0.2"
+        "nodemon": "^2.0.2",
+        "pino-pretty": "^3.5.0"
     }
 }

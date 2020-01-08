@@ -1,5 +1,6 @@
 const NATS = require("nats");
 const config = require("./config");
+const log = require("./log");
 
 const nats = NATS.connect({
     url: config.natsUrl,
@@ -7,31 +8,31 @@ const nats = NATS.connect({
 });
 
 nats.on("error", function(err) {
-    console.log("NATS ERROR", err);
+    log.error("NATS ERROR", err);
 });
 
 nats.on("connect", function(nc) {
-    console.log("NATS connected");
+    log.info("NATS connected");
 });
 
 nats.on("disconnect", function() {
-    console.log("NATS disconnect");
+    log.info("NATS disconnect");
 });
 
 nats.on("reconnecting", function() {
-    console.log("NATS reconnecting");
+    log.info("NATS reconnecting");
 });
 
 nats.on("reconnect", function(nc) {
-    console.log("NATS reconnect");
+    log.info("NATS reconnect");
 });
 
 nats.on("close", function() {
-    console.log("NATS close");
+    log.info("NATS close");
 });
 
 nats.on("permission_error", function(err) {
-    console.error("NATS got a permissions error", err.message);
+    log.error("NATS got a permissions error", err.message);
 });
 
 module.exports = nats;

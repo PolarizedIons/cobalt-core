@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("../config");
+const log = require("../log");
 
 mongoose.connect(config.dbUrl, {
     useNewUrlParser: true,
@@ -7,9 +8,11 @@ mongoose.connect(config.dbUrl, {
 });
 
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "DB connection error:"));
+db.on("error", err => {
+    log.error("DB ERROR: ", err);
+});
 db.once("open", function() {
-    console.log("DB connected!");
+    log.info("DB connected!");
 });
 
 module.exports = db;

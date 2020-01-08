@@ -1,3 +1,4 @@
+const log = require("../log");
 const Command = require("../db/command");
 const config = require("../config");
 
@@ -15,7 +16,7 @@ const REPLY_TYPE = {
 
 module.exports = (nats, db) => {
     nats.subscribe("messageReceived", msg => {
-        console.log("[MESSAGE]", msg);
+        log.debug("[MESSAGE] <%s>: %s", msg.channel, msg.message);
 
         const args = msg.message.split(" ");
         const cmd = args.shift().substring(prefixLength);
