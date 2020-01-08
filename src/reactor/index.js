@@ -6,15 +6,15 @@ const prefixLength = config.commandPrefix.length;
 
 const COMMAND_TYPE = {
     NORMAL: 0,
-    RANDOM_CHOICE: 1,
+    RANDOM_CHOICE: 1
 };
 
 const REPLY_TYPE = {
     NORMAL: 0,
-    ME_RESPONSE: 1,
+    ME_RESPONSE: 1
 };
 
-module.exports = (nats, db) => {
+module.exports = nats => {
     nats.subscribe("messageReceived", msg => {
         log.debug("[MESSAGE] <%s>: %s", msg.channel, msg.message);
 

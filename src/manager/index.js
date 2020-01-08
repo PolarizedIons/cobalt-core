@@ -1,3 +1,3 @@
 module.exports = nats => {
-    // TODO
+    require("./commandList")(nats);
 };
