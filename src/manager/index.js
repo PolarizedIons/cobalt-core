@@ -1,4 +1,6 @@
 module.exports = nats => {
-    require("./commandList")(nats);
+    require("./commandCreate")(nats);
+    require("./commandModify")(nats);
     require("./commandDelete")(nats);
+    require("./commandList")(nats);
 };
