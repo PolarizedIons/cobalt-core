@@ -7,7 +7,7 @@ module.exports = nats => {
             return;
         }
 
-        log.debug(`Command Create: ${request}`);
+        log.debug(`Command Create`);
 
         Command.create(request, (err, doc) => {
             nats.publish(reply, { success: !err, data: err ? err : doc });
