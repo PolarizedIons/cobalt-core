@@ -1,6 +1,6 @@
 # Cobalt-Core
 
-## Microservice portion of Project Cobalt
+## Core-microservice portion of Project Cobalt
 
 | Project      | Link                                         |
 | ------------ | -------------------------------------------- |
