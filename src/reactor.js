@@ -1,6 +1,6 @@
-const log = require("../log");
-const Command = require("../db/command");
-const config = require("../config");
+const log = require("./log");
+const Command = require("./db/command");
+const config = require("./config");
 
 const prefixLength = config.commandPrefix.length;
 
